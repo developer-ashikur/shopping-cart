@@ -1,35 +1,3 @@
-const plusBtn = document.getElementById('plusBtn');
-plusBtn.addEventListener('click', function () {
-    // const phoneItems = document.getElementById('phoneItems').value;
-    // let phoneItemsNum = parseFloat(phoneItems);
-    let phoneItemsNum = getInputValues('phoneItems');
-    phoneItemsNum = phoneItemsNum + 1;
-    document.getElementById('phoneItems').value = phoneItemsNum;
-    
-    // const phonePrice = document.getElementById('phonePrice').innerText;
-    // let phonePriceNum = parseFloat(phonePrice);
-    if (phoneItemsNum >= 0) {
-        let phonePriceNum = getSpanValue('phonePrice');
-        phonePriceNum = phoneItemsNum * 1000;
-        document.getElementById('phonePrice').innerText = phonePriceNum;
-    }
-    
-})
-
-//minus button event handler
-const minusBtn = document.getElementById('minusBtn');
-minusBtn.addEventListener('click', function () {
-    let currentItems = getInputValues('phoneItems');
-    currentItems = currentItems - 1;
-    document.getElementById('phoneItems').value = currentItems;
-
-    if (currentItems >= 0) {
-        let updatedPrice = getSpanValue('phonePrice');
-        updatedPrice = updatedPrice - 1000;
-        document.getElementById('phonePrice').innerText = updatedPrice;
-    }
-})
-
 function getInputValues(id) {
     const items = document.getElementById(id).value;
     const inputValue = parseFloat(items);
@@ -40,3 +8,65 @@ function getSpanValue(id) {
     const priceValue = parseFloat(price);
     return priceValue;
 }
+
+let phoneItemsNum = getInputValues('phoneItems');
+let caseItemsNum = getInputValues('caseItems');
+var totalPhonePrice = 0;
+var totalCasePrice = 0;
+var subTotal = 0;
+var tax = 0;
+var total = 0;
+
+
+// plus button event handler for phone
+const plusBtn = document.getElementById('plusBtn');
+plusBtn.addEventListener('click', function () {
+    phoneItemsNum = phoneItemsNum + 1;
+    document.getElementById('phoneItems').value = phoneItemsNum;
+    totalPhonePrice = phoneItemsNum * 1000;
+    document.getElementById('phonePrice').innerText = totalPhonePrice;
+    subTotal = totalPhonePrice + totalCasePrice;
+    document.getElementById('subTotal').innerText = subTotal;
+    total = subTotal + tax;
+    document.getElementById('grandTotal').innerText = total;
+})
+
+//minus button event handler for phone
+const minusBtn = document.getElementById('minusBtn');
+minusBtn.addEventListener('click', function () {
+    phoneItemsNum = phoneItemsNum - 1;
+    document.getElementById('phoneItems').value = phoneItemsNum;
+    totalPhonePrice = phoneItemsNum * 1000;
+    document.getElementById('phonePrice').innerText = totalPhonePrice;
+    subTotal = totalPhonePrice + totalCasePrice;
+    document.getElementById('subTotal').innerText = subTotal;
+    total = subTotal + tax;
+    document.getElementById('grandTotal').innerText = total;
+})
+
+// plus button event handler for case
+const casePlus = document.getElementById('casePlus');
+casePlus.addEventListener('click', function () {
+     caseItemsNum = caseItemsNum + 1;
+    document.getElementById('caseItems').value = caseItemsNum;
+    totalCasePrice = caseItemsNum * 100;
+    document.getElementById('casePrice').innerText = totalCasePrice;
+    subTotal = totalPhonePrice + totalCasePrice;
+    document.getElementById('subTotal').innerText = subTotal;
+    total = subTotal + tax;
+    document.getElementById('grandTotal').innerText = total;
+ 
+})
+//minus button event handler for case
+const caseMinus = document.getElementById('caseMinus');
+caseMinus.addEventListener('click', function () {
+    caseItemsNum = caseItemsNum - 1;
+    document.getElementById('caseItems').value = caseItemsNum;
+    totalCasePrice = caseItemsNum * 100;
+    document.getElementById('casePrice').innerText = totalCasePrice;
+    subTotal = totalPhonePrice + totalCasePrice;
+    document.getElementById('subTotal').innerText = subTotal;
+    total = subTotal + tax;
+    document.getElementById('grandTotal').innerText = total;
+})
+
