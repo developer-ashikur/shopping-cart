@@ -23,8 +23,12 @@ const plusBtn = document.getElementById('plusBtn');
 plusBtn.addEventListener('click', function () {
     phoneItemsNum = phoneItemsNum + 1;
     document.getElementById('phoneItems').value = phoneItemsNum;
-    totalPhonePrice = phoneItemsNum * 1000;
-    document.getElementById('phonePrice').innerText = totalPhonePrice;
+    
+    if (phoneItemsNum >= 0) {
+        totalPhonePrice = phoneItemsNum * 1000;
+        document.getElementById('phonePrice').innerText = totalPhonePrice;
+    }
+
     subTotal = totalPhonePrice + totalCasePrice;
     document.getElementById('subTotal').innerText = subTotal;
     tax = subTotal * (1 / 100);
@@ -38,8 +42,12 @@ const minusBtn = document.getElementById('minusBtn');
 minusBtn.addEventListener('click', function () {
     phoneItemsNum = phoneItemsNum - 1;
     document.getElementById('phoneItems').value = phoneItemsNum;
-    totalPhonePrice = phoneItemsNum * 1000;
-    document.getElementById('phonePrice').innerText = totalPhonePrice;
+
+    if (phoneItemsNum >= 0) {
+        totalPhonePrice = phoneItemsNum * 1000;
+        document.getElementById('phonePrice').innerText = totalPhonePrice;
+    }
+    
     subTotal = totalPhonePrice + totalCasePrice;
     document.getElementById('subTotal').innerText = subTotal;
     tax = subTotal * (1 / 100);
@@ -53,8 +61,12 @@ const casePlus = document.getElementById('casePlus');
 casePlus.addEventListener('click', function () {
      caseItemsNum = caseItemsNum + 1;
     document.getElementById('caseItems').value = caseItemsNum;
-    totalCasePrice = caseItemsNum * 100;
-    document.getElementById('casePrice').innerText = totalCasePrice;
+
+    if (caseItemsNum >= 0) {
+        totalCasePrice = caseItemsNum * 100;
+        document.getElementById('casePrice').innerText = totalCasePrice;
+    }
+
     subTotal = totalPhonePrice + totalCasePrice;
     document.getElementById('subTotal').innerText = subTotal;
     tax = subTotal * (1 / 100);
@@ -68,8 +80,12 @@ const caseMinus = document.getElementById('caseMinus');
 caseMinus.addEventListener('click', function () {
     caseItemsNum = caseItemsNum - 1;
     document.getElementById('caseItems').value = caseItemsNum;
-    totalCasePrice = caseItemsNum * 100;
-    document.getElementById('casePrice').innerText = totalCasePrice;
+
+    if (caseItemsNum >= 0) {
+        totalCasePrice = caseItemsNum * 100;
+        document.getElementById('casePrice').innerText = totalCasePrice;
+    }
+
     subTotal = totalPhonePrice + totalCasePrice;
     document.getElementById('subTotal').innerText = subTotal;
     tax = subTotal * (1 / 100);
