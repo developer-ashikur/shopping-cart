@@ -27,6 +27,8 @@ plusBtn.addEventListener('click', function () {
     document.getElementById('phonePrice').innerText = totalPhonePrice;
     subTotal = totalPhonePrice + totalCasePrice;
     document.getElementById('subTotal').innerText = subTotal;
+    tax = subTotal * (1 / 100);
+    document.getElementById('tax').innerText = tax;
     total = subTotal + tax;
     document.getElementById('grandTotal').innerText = total;
 })
@@ -40,6 +42,8 @@ minusBtn.addEventListener('click', function () {
     document.getElementById('phonePrice').innerText = totalPhonePrice;
     subTotal = totalPhonePrice + totalCasePrice;
     document.getElementById('subTotal').innerText = subTotal;
+    tax = subTotal * (1 / 100);
+    document.getElementById('tax').innerText = tax;
     total = subTotal + tax;
     document.getElementById('grandTotal').innerText = total;
 })
@@ -53,6 +57,8 @@ casePlus.addEventListener('click', function () {
     document.getElementById('casePrice').innerText = totalCasePrice;
     subTotal = totalPhonePrice + totalCasePrice;
     document.getElementById('subTotal').innerText = subTotal;
+    tax = subTotal * (1 / 100);
+    document.getElementById('tax').innerText = tax;
     total = subTotal + tax;
     document.getElementById('grandTotal').innerText = total;
  
@@ -66,6 +72,8 @@ caseMinus.addEventListener('click', function () {
     document.getElementById('casePrice').innerText = totalCasePrice;
     subTotal = totalPhonePrice + totalCasePrice;
     document.getElementById('subTotal').innerText = subTotal;
+    tax = subTotal * (1 / 100);
+    document.getElementById('tax').innerText = tax;
     total = subTotal + tax;
     document.getElementById('grandTotal').innerText = total;
 })
